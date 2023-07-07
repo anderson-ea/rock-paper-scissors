@@ -10,7 +10,11 @@
 <script type="text/javascript">
     const getComputerChoice = () => {
         const choiceList = ["Rock", "Paper", "Scissors"]
-        console.log(choiceList[Math.floor(Math.random() * choiceList.length)])
+        return(choiceList[Math.floor(Math.random() * choiceList.length)])
+    }
+    const getPlayerChoice = () => {
+        const playerSelection = prompt(`Type in either "Rock", "Paper", or "Scissors" to select your choice`)
+        return(playerSelection.toUpperCase())
     }
 </script>
 </html>
