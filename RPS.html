@@ -9,12 +9,44 @@
 </body>
 <script type="text/javascript">
     const getComputerChoice = () => {
-        const choiceList = ["Rock", "Paper", "Scissors"]
+        const choiceList = ["ROCK", "PAPER", "SCISSORS"]
         return(choiceList[Math.floor(Math.random() * choiceList.length)])
     }
     const getPlayerChoice = () => {
         const playerSelection = prompt(`Type in either "Rock", "Paper", or "Scissors" to select your choice`)
         return(playerSelection.toUpperCase())
     }
+    const playRound = (playerSelection, computerSelection) => {
+        if (playerSelection == computerSelection) {
+            console.log(`Tie Game! You both picked ${computerSelection}`)
+        } if (playerSelection == "ROCK") {
+            switch(computerSelection) {
+                case "PAPER":
+                    console.log("You Lose! Paper beats Rock")
+                    break;
+                case "SCISSORS":
+                    console.log("You Win! Rock beats Scissors")
+            }
+        } if (playerSelection == "PAPER") {
+            switch(computerSelection) {
+                case "ROCK":
+                    console.log("You Win! Paper beats Rock")
+                    break;
+                case "SCISSORS":
+                    console.log("You Lose! Scissors beats Paper")
+            }
+        } if (playerSelection == "SCISSORS") {
+            switch(computerSelection) {
+                case "ROCK":
+                    console.log("You Lose! Rock beats Scissors")
+                    break;
+                case "PAPER":
+                    console.log("You Win! Scissors beats Paper")
+            }
+        }
+    }
+    const playerSelection = getPlayerChoice()
+    const computerSelection = getComputerChoice()
+    playRound(playerSelection, computerSelection)
 </script>
 </html>
