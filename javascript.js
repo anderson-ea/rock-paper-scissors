@@ -1,40 +1,37 @@
 const getComputerChoice = () => {
-	const choiceList = ["ROCK", "PAPER", "SCISSORS"]
+	const choiceList = ["Rock", "Paper", "Scissors"]
 	return(choiceList[Math.floor(Math.random() * choiceList.length)])
 }
-const getPlayerChoice = () => {
-	const playerSelection = prompt(`Type in either "Rock", "Paper", or "Scissors" to select your choice`)
-	return(playerSelection.toUpperCase())
-}
+
 const playRound = (playerSelection, computerSelection) => {
 	const result = document.querySelector(".results-container")
 	if (playerSelection == computerSelection) {
 		result.textContent = `Tie Game! You both picked ${computerSelection}`
 		return("Tie");
-	} if (playerSelection == "ROCK") {
+	} if (playerSelection == "Rock") {
 		switch(computerSelection) {
-			case "PAPER":
+			case "Paper":
 				result.textContent = "You Lose! The computer picked Paper!"
 				return("Computer Wins");
-			case "SCISSORS":
+			case "Scissors":
 				result.textContent = "You Win! The computer picked Scissors!"
 				return("Player Wins");
 		}
-	} if (playerSelection == "PAPER") {
+	} if (playerSelection == "Paper") {
 		switch(computerSelection) {
-				case "ROCK":
+				case "Rock":
 					result.textContent = "You Win! The computer picked Rock"
 						return("Player Wins");
-				case "SCISSORS":
+				case "Scissors":
 					result.textContent = "You Lose! The computer picked Paper"
 						return("Computer Wins");
 		}
-	} if (playerSelection == "SCISSORS") {
+	} if (playerSelection == "Scissors") {
 		switch(computerSelection) {
-				case "ROCK":
+				case "Rock":
 					result.textContent = "You Lose! The computer picked Scissors"
 					return("Computer Wins");
-				case "PAPER":
+				case "Paper":
 					result.textContent = "You Win! The computer picked Paper"
 					return("Player Wins");
 		}
