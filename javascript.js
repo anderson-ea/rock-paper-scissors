@@ -7,36 +7,37 @@ const getPlayerChoice = () => {
 	return(playerSelection.toUpperCase())
 }
 const playRound = (playerSelection, computerSelection) => {
+	const result = document.querySelector(".results-container")
 	if (playerSelection == computerSelection) {
-			console.log(`Tie Game! You both picked ${computerSelection}`)
-			return("Tie");
+		result.textContent = `Tie Game! You both picked ${computerSelection}`
+		return("Tie");
 	} if (playerSelection == "ROCK") {
-			switch(computerSelection) {
-					case "PAPER":
-							console.log("You Lose! Paper beats Rock")
-							return("Computer Wins");
-					case "SCISSORS":
-							console.log("You Win! Rock beats Scissors")
-							return("Player Wins");
-			}
+		switch(computerSelection) {
+			case "PAPER":
+				result.textContent = "You Lose! The computer picked Paper!"
+				return("Computer Wins");
+			case "SCISSORS":
+				result.textContent = "You Win! The computer picked Scissors!"
+				return("Player Wins");
+		}
 	} if (playerSelection == "PAPER") {
-			switch(computerSelection) {
-					case "ROCK":
-							console.log("You Win! Paper beats Rock")
-							return("Player Wins");
-					case "SCISSORS":
-							console.log("You Lose! Scissors beats Paper")
-							return("Computer Wins");
-			}
+		switch(computerSelection) {
+				case "ROCK":
+					result.textContent = "You Win! The computer picked Rock"
+						return("Player Wins");
+				case "SCISSORS":
+					result.textContent = "You Lose! The computer picked Paper"
+						return("Computer Wins");
+		}
 	} if (playerSelection == "SCISSORS") {
-			switch(computerSelection) {
-					case "ROCK":
-							console.log("You Lose! Rock beats Scissors")
-							return("Computer Wins");
-					case "PAPER":
-							console.log("You Win! Scissors beats Paper")
-							return("Player Wins");
-			}
+		switch(computerSelection) {
+				case "ROCK":
+					result.textContent = "You Lose! The computer picked Scissors"
+					return("Computer Wins");
+				case "PAPER":
+					result.textContent = "You Win! The computer picked Paper"
+					return("Player Wins");
+		}
 	}
 }
 
