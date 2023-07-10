@@ -3,41 +3,76 @@ const getComputerChoice = () => {
 	return(choiceList[Math.floor(Math.random() * choiceList.length)])
 }
 
+const talliedScore = document.querySelector('h1');
+
+let computerWins = 0;
+let playerWins = 0;
+let tieGames = 0;
+
 const playRound = (playerSelection, computerSelection) => {
+	console.log(playerSelection)
+	console.log(computerSelection)
 	const result = document.querySelector(".results-container")
 	if (playerSelection == computerSelection) {
 		result.textContent = `Tie Game! You both picked ${computerSelection}`
-		return("Tie");
+		tieGames += 1
+		talliedScore.textContent = `Score: ${playerWins} - ${computerWins} - ${tieGames}`
 	} if (playerSelection == "Rock") {
 		switch(computerSelection) {
 			case "Paper":
 				result.textContent = "You Lose! The computer picked Paper!"
-				return("Computer Wins");
+				computerWins += 1
+				talliedScore.textContent = `Score: ${playerWins} - ${computerWins} - ${tieGames}`
+				break;
 			case "Scissors":
 				result.textContent = "You Win! The computer picked Scissors!"
-				return("Player Wins");
+				playerWins += 1
+				talliedScore.textContent = `Score: ${playerWins} - ${computerWins} - ${tieGames}`
+				break;
 		}
 	} if (playerSelection == "Paper") {
-		switch(computerSelection) {
+			switch(computerSelection) {
 				case "Rock":
 					result.textContent = "You Win! The computer picked Rock"
-						return("Player Wins");
+					playerWins += 1
+					talliedScore.textContent = `Score: ${playerWins} - ${computerWins} - ${tieGames}`
+					break;
 				case "Scissors":
 					result.textContent = "You Lose! The computer picked Paper"
-						return("Computer Wins");
+					computerWins += 1
+					talliedScore.textContent = `Score: ${playerWins} - ${computerWins} - ${tieGames}`
+					break;
 		}
 	} if (playerSelection == "Scissors") {
-		switch(computerSelection) {
+			switch(computerSelection) {
 				case "Rock":
 					result.textContent = "You Lose! The computer picked Scissors"
-					return("Computer Wins");
+					computerWins += 1
+					talliedScore.textContent = `Score: ${playerWins} - ${computerWins} - ${tieGames}`
+					break;
 				case "Paper":
 					result.textContent = "You Win! The computer picked Paper"
-					return("Player Wins");
+					playerWins += 1
+					talliedScore.textContent = `Score: ${playerWins} - ${computerWins} - ${tieGames}`
+					break;
 		}
 	}
+	
 }
 
+// const tallyScore = (result) => {
+// 	const talliedScore = document.querySelector('h1');
+// 	while (computerWins < 5 || playerWins < 5) {
+// 		if (result == "Player Wins") {
+// 				playerWins += 1
+// 		} if (result == "Computer Wins") {
+// 				computerWins += 1
+// 		} if (result == "Tie") {
+// 				tieGames += 1
+// 		}
+// 	}
+// 	talliedScore.textContent = `Score: ${playerWins} - ${computerWins} - ${tieGames}`
+// }
 
 const buttons = document.querySelectorAll('.btn');
 buttons.forEach((button) => {
@@ -45,25 +80,3 @@ buttons.forEach((button) => {
 		playRound(button.id, getComputerChoice())
 	})
 })
-
-
-const game = () => {
-	let computerWins = 0;
-	let playerWins = 0;
-	let tieGames = 0;
-	// remove logic for playing 5 rounds for now
-	// for (let i = 0; i < 5; i++) {
-	// 		const playerSelection = getPlayerChoice()
-	// 		const computerSelection = getComputerChoice()
-	// 		let result = playRound(playerSelection, computerSelection)   
-	// 		if (result == "Player Wins") {
-	// 				playerWins += 1
-	// 		} if (result == "Computer Wins") {
-	// 				computerWins += 1
-	// 		} if (result == "Tie") {
-	// 				tieGames += 1
-	// 		}
-	// 		console.log(`${playerWins} win(s) - ${computerWins} loss(es) - ${tieGames} tied game(s)`)
-	// }
-}
-game()
