@@ -1,0 +1,40 @@
+*, html {
+    margin: 0;
+    background: rgb(85, 85, 85);
+}
+
+body {
+    min-height: 100vh;
+}
+
+h2 {
+    color: white;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn {
+    background: rgb(209, 209, 209);
+    font-size: 50px;
+    display: flex;
+    justify-content: center;
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 25px 40px;
+    margin: 5px;
+    transition: 0.1s ease;
+}
+
+.btn:hover {
+    border: 2px solid white;
+    cursor: pointer;
+    background: white;
+}

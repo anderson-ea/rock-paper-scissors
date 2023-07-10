@@ -45,18 +45,19 @@ const game = () => {
 	let computerWins = 0;
 	let playerWins = 0;
 	let tieGames = 0;
-	for (let i = 0; i < 5; i++) {
-			const playerSelection = getPlayerChoice()
-			const computerSelection = getComputerChoice()
-			let result = playRound(playerSelection, computerSelection)   
-			if (result == "Player Wins") {
-					playerWins += 1
-			} if (result == "Computer Wins") {
-					computerWins += 1
-			} if (result == "Tie") {
-					tieGames += 1
-			}
-			console.log(`${playerWins} win(s) - ${computerWins} loss(es) - ${tieGames} tied game(s)`)
-	}
+	// remove logic for playing 5 rounds for now
+	// for (let i = 0; i < 5; i++) {
+	// 		const playerSelection = getPlayerChoice()
+	// 		const computerSelection = getComputerChoice()
+	// 		let result = playRound(playerSelection, computerSelection)   
+	// 		if (result == "Player Wins") {
+	// 				playerWins += 1
+	// 		} if (result == "Computer Wins") {
+	// 				computerWins += 1
+	// 		} if (result == "Tie") {
+	// 				tieGames += 1
+	// 		}
+	// 		console.log(`${playerWins} win(s) - ${computerWins} loss(es) - ${tieGames} tied game(s)`)
+	// }
 }
 game()
