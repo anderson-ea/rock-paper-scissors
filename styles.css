@@ -5,13 +5,16 @@
 
 body {
     min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 h2, h3, h1 {
     color: white;
     display: flex;
     justify-content: center;
-    padding: 20px;
+    padding: 10px;
 }
 
 .container {

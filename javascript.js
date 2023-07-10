@@ -4,17 +4,15 @@ const getComputerChoice = () => {
 }
 
 const talliedScore = document.querySelector('h1');
+const result = document.querySelector(".results-container")
 
 let computerWins = 0;
 let playerWins = 0;
 let tieGames = 0;
 
 const playRound = (playerSelection, computerSelection) => {
-	console.log(playerSelection)
-	console.log(computerSelection)
-	const result = document.querySelector(".results-container")
 	if (playerSelection == computerSelection) {
-		result.textContent = `Tie Game! You both picked ${computerSelection}`
+		result.textContent = `Tie Round! You both picked ${computerSelection}`
 		tieGames += 1
 		talliedScore.textContent = `Score: ${playerWins} - ${computerWins} - ${tieGames}`
 	} if (playerSelection == "Rock") {
@@ -60,23 +58,20 @@ const playRound = (playerSelection, computerSelection) => {
 	
 }
 
-// const tallyScore = (result) => {
-// 	const talliedScore = document.querySelector('h1');
-// 	while (computerWins < 5 || playerWins < 5) {
-// 		if (result == "Player Wins") {
-// 				playerWins += 1
-// 		} if (result == "Computer Wins") {
-// 				computerWins += 1
-// 		} if (result == "Tie") {
-// 				tieGames += 1
-// 		}
-// 	}
-// 	talliedScore.textContent = `Score: ${playerWins} - ${computerWins} - ${tieGames}`
-// }
-
 const buttons = document.querySelectorAll('.btn');
 buttons.forEach((button) => {
 	button.addEventListener('click', () => {
 		playRound(button.id, getComputerChoice())
+		if (computerWins == 5) {
+			result.textContent = `GAME OVER - COMPUTER WINS`
+			computerWins = 0;
+			playerWins = 0;
+			tieGames = 0;
+		}	if (playerWins == 5) {
+				result.textContent = `GAME OVER - PLAYER WINS`
+				computerWins = 0;
+				playerWins = 0;
+				tieGames = 0;
+			}
 	})
 })
