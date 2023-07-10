@@ -41,6 +41,14 @@ const playRound = (playerSelection, computerSelection) => {
 }
 
 
+const buttons = document.querySelectorAll('.btn');
+buttons.forEach((button) => {
+	button.addEventListener('click', () => {
+		playRound(button.id, getComputerChoice())
+	})
+})
+
+
 const game = () => {
 	let computerWins = 0;
 	let playerWins = 0;
