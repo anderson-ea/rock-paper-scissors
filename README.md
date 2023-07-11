@@ -1,2 +1,5 @@
-# rock-paper-scissors
-Brushing up and learning more about javascript, going thru The Odin Project. This project is to make a simple rock paper scissors game.
+# Rock, Paper, Scissors
+Simple rock, paper, scissors UI. Built using html, css, javascript.
+
+# Link to view
+[https://anderson-ea.github.io/rock-paper-scissors/](https://anderson-ea.github.io/rock-paper-scissors/)
